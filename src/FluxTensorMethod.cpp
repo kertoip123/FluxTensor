@@ -1,7 +1,8 @@
 #include "FluxTensorMethod.hpp"
 
-FluxTensorMethod::FluxTensorMethod(int nDs, int nDt, int nAs, int nAt)
+FluxTensorMethod::FluxTensorMethod(int nDs, int nDt, int nAs, int nAt, double thershold)
 {
+	this->threshold = thershold;
 	this->nDs = nDs;
 	this->nDt = nDt;
 	this->nAs = nAs;
@@ -314,7 +315,7 @@ void FluxTensorMethod :: update(const Mat & input, Mat & result_frame)
            // rgb[0] = (double) *input_pixel_ptr++;
            // double avr = (rgb[0]+rgb[1]+rgb[2])/3;
             double avr = (double) *input_pixel_ptr++;
-        	mask = (avr>THRESHOLD) ? WHITE : BLACK;
+        	mask = (avr>threshold) ? WHITE : BLACK;
 
             for(int i = 0; i < 1; ++i)
                 *result_pixel_ptr++ = mask;

@@ -9,6 +9,8 @@ using namespace cv;
 
 const string INPUT = "Input";
 const string FLUX_TENSOR = "Flux Tensor result";
+const string SUBTRACT = "Subtract result";
+const string OPTICAL_FLOW = "Optical Flow result";
 
 const int WINDOW_PADDING = 30;
 const int WINDOW_X_POS_OFFSET = 350;

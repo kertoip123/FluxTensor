@@ -10,7 +10,7 @@
 
 #define TENSOR_COMPONENTS_NUM	3
 
-#define THRESHOLD	(30)
+//#define THRESHOLD	(30)
 
 using namespace cv;
 using namespace std;
@@ -41,6 +41,7 @@ const uchar WHITE = (uchar) 255;
 class FluxTensorMethod
 {
     private:
+		double threshold;
 		// size of the derivative filter
 		int nDs;
 		// size of the temporal derivative filter
@@ -70,7 +71,7 @@ class FluxTensorMethod
 		void apply_temporal_filter(deque<Mat> * queue_ptr, const double * filter, int filter_size, Mat & result_frame);
 
     public:
-        FluxTensorMethod(int nDs = 3, int nDt = 3, int nAs = 3, int nAt = 3);
+        FluxTensorMethod(int nDs = 3, int nDt = 3, int nAs = 3, int nAt = 3, double thershold = 30);
         ~FluxTensorMethod();
 
         int compute_Ixt(const Mat & input, Mat & result);
